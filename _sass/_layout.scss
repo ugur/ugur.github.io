@@ -107,6 +107,15 @@
     margin-left: 0;
 }
 
+.social-media-list {
+    text-align: right;
+}
+
+.social-media-list li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
 .footer-col-wrapper {
     font-size: 15px;
     color: $grey-color;
