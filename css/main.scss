@@ -1,52 +1,82 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
 
+// Layout variables
+$spacing-unit:   32px;
+$content-width:  700px;
+$on-palm:        580px;
+$on-laptop:      800px;
 
-
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
+// Fallback SCSS vars (used in partials that reference them)
+$base-font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
 $base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$small-font-size:  13.5px;
+$base-line-height: 1.7;
+$text-color:       #1c1a16;
+$background-color: #f2f0eb;
+$brand-color:      #b06530;
+$grey-color:       #79756c;
+$grey-color-light: #d2cfc6;
+$grey-color-dark:  #3a3830;
 
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+// CSS custom properties — light theme (default)
+:root {
+  --bg:           #f2f0eb;
+  --bg-surface:   #e8e5de;
+  --border:       #d2cfc6;
+  --text:         #1c1a16;
+  --text-muted:   #79756c;
+  --accent:       #b06530;
+  --accent-hover: #8d5026;
+  --tag-bg:       #e0ddd4;
+  --tag-text:     #4a4640;
 }
 
+// Dark theme via OS preference
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #110f0c;
+    --bg-surface:   #1c1a15;
+    --border:       #2c2924;
+    --text:         #ece9e2;
+    --text-muted:   #8a8378;
+    --accent:       #d48548;
+    --accent-hover: #e09860;
+    --tag-bg:       #221f18;
+    --tag-text:     #b2aa9e;
+  }
+}
 
+// Manual overrides (data-theme toggle wins over OS)
+:root[data-theme="light"] {
+  --bg:           #f2f0eb;
+  --bg-surface:   #e8e5de;
+  --border:       #d2cfc6;
+  --text:         #1c1a16;
+  --text-muted:   #79756c;
+  --accent:       #b06530;
+  --accent-hover: #8d5026;
+  --tag-bg:       #e0ddd4;
+  --tag-text:     #4a4640;
+}
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+:root[data-theme="dark"] {
+  --bg:           #110f0c;
+  --bg-surface:   #1c1a15;
+  --border:       #2c2924;
+  --text:         #ece9e2;
+  --text-muted:   #8a8378;
+  --accent:       #d48548;
+  --accent-hover: #e09860;
+  --tag-bg:       #221f18;
+  --tag-text:     #b2aa9e;
+}
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@import "base", "layout", "syntax-highlighting";

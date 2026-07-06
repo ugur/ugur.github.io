@@ -3,26 +3,28 @@ layout: default
 published: true
 ---
 
-<div class="home">
+<section class="intro">
 
-  
-  i write mostly php(laravel), a bit golang, tried swift, python. 
-  worked mostly at backend projects,
-  also have basic frontend knowledge like html,css, a bit javascript. 
+  <div class="intro-name">Ugur Kuyumcular</div>
+  <div class="intro-role">Backend Developer &middot; Istanbul</div>
 
-  
-  <!--<ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  <p class="intro-bio">
+    I build web systems, mostly with PHP (Laravel) and Go.
+    I started as a metallurgy engineer and came to software
+    through wanting to understand how complex systems hold together.
+  </p>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="stack-tags">
+    <span class="tag">PHP</span>
+    <span class="tag">Laravel</span>
+    <span class="tag">Go</span>
+    <span class="tag">Python</span>
+    <span class="tag">MySQL</span>
+    <span class="tag">HTML / CSS</span>
+  </div>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
+  <div class="intro-cta">
+    <a href="{{ "/projects/" | prepend: site.baseurl }}">View projects &rarr;</a>
+  </div>
 
-</div>
+</section>
